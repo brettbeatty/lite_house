@@ -6,6 +6,8 @@ defmodule LiteHouse.Web do
     Plug.Cowboy.child_spec(scheme: :http, plug: __MODULE__, options: [port: 27388])
   end
 
+  plug LiteHouse.Web.Authentication
+
   plug Plug.Parsers,
     parsers: [:json, Absinthe.Plug.Parser],
     pass: ["*/*"],
