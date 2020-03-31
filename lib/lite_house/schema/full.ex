@@ -1,4 +1,4 @@
-defmodule LiteHouse.Schema do
+defmodule LiteHouse.Schema.Full do
   use Absinthe.Schema
 
   import_types LiteHouse.Schema.Math.{Advanced, Basic}

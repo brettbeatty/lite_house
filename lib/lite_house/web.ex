@@ -13,7 +13,7 @@ defmodule LiteHouse.Web do
     pass: ["*/*"],
     json_decoder: Jason
 
-  # plug Absinthe.Plug, schema: LiteHouse.Schema
   plug LiteHouse.Web.GraphQL,
-    full: LiteHouse.Schema
+    full: LiteHouse.Schema.Full,
+    lite: LiteHouse.Schema.Lite
 end
