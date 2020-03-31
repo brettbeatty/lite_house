@@ -1,21 +1,24 @@
 # LiteHouse
 
-**TODO: Add description**
+An experiment around serving different GraphQL schemas to different users
 
-## Installation
+## Up & Running
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `lite_house` to your list of dependencies in `mix.exs`:
+The server runs automatically on port 27388 when you run the application.
 
-```elixir
-def deps do
-  [
-    {:lite_house, "~> 0.1.0"}
-  ]
-end
+```
+$ git clone git@github.com:brettbeatty/lite_house.git
+$ cd lite_house
+$ mix deps.get
+$ iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/lite_house](https://hexdocs.pm/lite_house).
+## Serving Different Schemas
 
+If you try hitting the GraphQL schema served at `/`, you'll get a 404. We need to set the authorization header.
+
+Add the header `Authorization: lite access` and reload the docs. You'll see two fields: add and subtract.
+
+Change the header to `Authorization: full access` and reload the docs. There will now be two new fields: multiply and divide.
+
+You can play with these fields and see they're only available with the appropriate access.
