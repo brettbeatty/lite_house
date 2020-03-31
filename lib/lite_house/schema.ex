@@ -1,9 +1,10 @@
 defmodule LiteHouse.Schema do
   use Absinthe.Schema
 
+  import_types LiteHouse.Schema.Math.{Advanced, Basic}
+
   query do
-    field :available, :boolean do
-      resolve fn _args, _info -> {:ok, true} end
-    end
+    import_fields :basic_math
+    import_fields :advanced_math
   end
 end
